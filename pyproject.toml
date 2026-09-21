@@ -1,0 +1,29 @@
+[project]
+name = "timeo-concierge"
+version = "0.1.0"
+description = "Autonomous AI hospitality operations and concierge platform"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+api = ["fastapi>=0.115", "uvicorn[standard]>=0.32", "pydantic>=2.9", "python-dotenv>=1.0"]
+llm = ["anthropic>=0.40"]
+dev = ["pytest>=8.3", "ruff>=0.7"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
